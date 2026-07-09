@@ -1,0 +1,19 @@
+Freedom Travel OS v1.0 Release Package
+
+Included:
+- Source code
+- Production build in dist/
+- Documentation in docs/
+- Windows helper scripts
+- Release screenshots in release/screenshots/
+- Handbook copy in release/docs/ when available
+
+Recommended extraction path:
+C:\FTOS\v1
+
+Start preview:
+npm install
+npm run dev
+
+Build:
+npm run build

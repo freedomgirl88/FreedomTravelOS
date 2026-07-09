@@ -1,0 +1,3 @@
+import { Home, Plane, Building2, Package, MoreHorizontal } from "lucide-react";
+const nav=[["dashboard","Journey",Home],["flight","Flight",Plane],["hotel","Hotel",Building2],["packing","Packing",Package],["more","More",MoreHorizontal]];
+export default function BottomNav({activePage,setActivePage}){return <nav className="bottom-nav">{nav.map(([id,label,Icon])=><button key={id} className={activePage===id?"active":""} onClick={()=>setActivePage(id)}><Icon size={21}/><span>{label}</span></button>)}</nav>}
