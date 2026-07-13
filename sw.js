@@ -1,1 +1,86 @@
-const CACHE='ftos-v1-2';self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(['/','/manifest.webmanifest'])));self.skipWaiting()});self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))));self.clients.claim()});self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(fetch(e.request).then(r=>{const x=r.clone();caches.open(CACHE).then(c=>c.put(e.request,x));return r}).catch(()=>caches.match(e.request).then(c=>c||caches.match('/'))))});
+// Cache for offline support
+const CACHE_NAME = 'ftos-cache-v3';
+
+// Install event - pre-cache essentials
+self.addEventListener('install', event => {
+  console.log('[SW] Installing...');
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(cache => {
+      console.log('[SW] Cache opened');
+      return cache.add('/FreedomTravelOS/').catch(err => {
+        console.log('[SW] Could not cache root:', err);
+      });
+    }).then(() => {
+      console.log('[SW] Install complete');
+      self.skipWaiting();
+    })
+  );
+});
+
+// Activate event - cleanup
+self.addEventListener('activate', event => {
+  console.log('[SW] Activating...');
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.filter(name => name !== CACHE_NAME).map(name => {
+          console.log('[SW] Deleting old cache:', name);
+          return caches.delete(name);
+        })
+      );
+    }).then(() => {
+      console.log('[SW] Activation complete');
+      self.clients.claim();
+    })
+  );
+});
+
+// Fetch event - network first, fallback to cache
+self.addEventListener('fetch', event => {
+  const { request } = event;
+  
+  // Skip non-GET requests
+  if (request.method !== 'GET') {
+    return;
+  }
+
+  event.respondWith(
+    fetch(request)
+      .then(response => {
+        // Don't cache bad responses
+        if (!response || response.status !== 200) {
+          // If it's a 404 and looks like an HTML request, serve index
+          if (response.status === 404 && request.headers.get('accept')?.includes('text/html')) {
+            return caches.match('/FreedomTravelOS/').catch(() => response);
+          }
+          return response;
+        }
+
+        // Cache good responses
+        const responseToCache = response.clone();
+        caches.open(CACHE_NAME).then(cache => {
+          cache.put(request, responseToCache);
+        });
+        
+        return response;
+      })
+      .catch(() => {
+        // Network failed, try cache
+        console.log('[SW] Network failed, checking cache for:', request.url);
+        return caches.match(request)
+          .then(response => {
+            if (response) return response;
+            
+            // If it was an HTML request, serve index for client-side routing
+            if (request.headers.get('accept')?.includes('text/html')) {
+              return caches.match('/FreedomTravelOS/');
+            }
+            
+            return new Response('Offline - Content not available', {
+              status: 503,
+              statusText: 'Service Unavailable'
+            });
+          });
+      })
+  );
+});

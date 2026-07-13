@@ -1,14 +1,16 @@
 {
   "name": "Freedom Travel OS",
   "short_name": "Travel OS",
-  "start_url": "/",
+  "id": "/FreedomTravelOS/",
+  "start_url": "/FreedomTravelOS/",
+  "scope": "/FreedomTravelOS/",
   "display": "standalone",
   "background_color": "#f7f9ff",
   "theme_color": "#5b7cfa",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/icon.svg",
+      "src": "/FreedomTravelOS/icon.svg",
       "sizes": "512x512",
       "type": "image/svg+xml",
       "purpose": "any"
