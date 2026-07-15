@@ -1,7 +1,7 @@
 {
   "name": "Freedom Travel OS",
   "short_name": "Freedom",
-  "description": "Your premium offline-first Korea travel companion.",
+  "description": "Premium offline-first travel planning, live currency, weather, memories and smart trip guidance.",
   "id": "/FreedomTravelOS/",
   "start_url": "/FreedomTravelOS/",
   "scope": "/FreedomTravelOS/",
