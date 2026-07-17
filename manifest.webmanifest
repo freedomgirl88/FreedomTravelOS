@@ -1,7 +1,7 @@
 {
   "name": "Freedom Travel OS",
   "short_name": "Freedom",
-  "description": "Premium offline-first travel planning, live currency, weather, memories and smart trip guidance.",
+  "description": "Premium travel companion with the official QR identity, smart readiness, live currency, weather, memories and trip guidance.",
   "id": "/FreedomTravelOS/",
   "start_url": "/FreedomTravelOS/",
   "scope": "/FreedomTravelOS/",

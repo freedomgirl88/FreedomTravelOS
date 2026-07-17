@@ -1,5 +1,5 @@
 // Cache for offline support
-const CACHE_NAME = 'ftos-cache-v5';
+const CACHE_NAME = 'ftos-cache-v7';
 
 // Install event - pre-cache essentials
 self.addEventListener('install', event => {
