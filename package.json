@@ -1,10 +1,6 @@
 {
   "name": "freedom-travel-os",
-<<<<<<< HEAD
-  "version": "2.5.0-rc.7",
-=======
   "version": "2.5.0",
->>>>>>> 41c3b8f (Initial commit)
   "private": true,
   "type": "module",
   "scripts": {

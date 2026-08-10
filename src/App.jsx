@@ -25,14 +25,8 @@ const Reminders = lazy(() => import("./screens/Reminders"));
 const Documents = lazy(() => import("./screens/Documents"));
 const Emergency = lazy(() => import("./screens/Emergency"));
 const Timeline = lazy(() => import("./screens/Timeline"));
-<<<<<<< HEAD
-const TripSimulation = lazy(() => import("./screens/TripSimulation"));
-
-const VALID_PAGES = new Set(["dashboard", "flight", "hotel", "packing", "budget", "explore", "booking", "more", "settings", "notifications", "memories", "weather", "assistant", "airport", "journey", "companion", "reminders", "documents", "emergency", "timeline", "tripcheck"]);
-=======
 
 const VALID_PAGES = new Set(["dashboard", "flight", "hotel", "packing", "budget", "explore", "booking", "more", "settings", "notifications", "memories", "weather", "assistant", "airport", "journey", "companion", "reminders", "documents", "emergency", "timeline"]);
->>>>>>> 41c3b8f (Initial commit)
 
 function pageFromLocation() {
   const page = new URLSearchParams(window.location.search).get("page");
@@ -224,10 +218,6 @@ export default function App() {
     : activePage === "documents" ? <Documents store={store} />
     : activePage === "emergency" ? <Emergency store={store} />
     : activePage === "timeline" ? <Timeline store={store} />
-<<<<<<< HEAD
-    : activePage === "tripcheck" ? <TripSimulation setActivePage={setActivePage} />
-=======
->>>>>>> 41c3b8f (Initial commit)
     : <Dashboard {...sharedProps} />;
 
   return <div className={`app-shell${showSplash ? " splash-active" : ""}`}><a className="skip-link" href="#main-content">Skip to content</a><div className={`phone-frame${showSplash ? " splash-active" : ""}`}>{showSplash && <SplashScreen onDone={finishSplash} />}{!showSplash && !online && <div className="offline-strip"><WifiOff size={15}/> Offline · saved trip data remains available</div>}{!showSplash && updateReady && <div className="update-banner" role="status"><div><strong>Trip Ready update available</strong><span>Install the newest fixes when you are ready.</span></div><button onClick={installUpdate}><RefreshCw size={16}/> Update</button><button className="update-dismiss" aria-label="Dismiss update" onClick={() => setUpdateReady(null)}><X size={17}/></button></div>}<div id="main-content" className="screen-transition" key={activePage}><Suspense fallback={<ScreenLoader />}>{screen}</Suspense></div><BottomNav activePage={activePage} setActivePage={setActivePage} />{toast && <div className={`toast toast-${toast.type}`} key={toast.id}>{toast.message}</div>}</div></div>;

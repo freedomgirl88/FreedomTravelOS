@@ -39,11 +39,7 @@ export function createSnapshot(reason = "Manual backup", { force = false } = {})
     id: `backup-${now}`,
     createdAt: new Date(now).toISOString(),
     reason,
-<<<<<<< HEAD
-    version: "2.5.0-rc.2",
-=======
     version: "2.5.0",
->>>>>>> 41c3b8f (Initial commit)
     data,
   };
   const next = [snapshot, ...getSnapshots()].slice(0, MAX_SNAPSHOTS);
@@ -74,11 +70,7 @@ export function getLastBackupAt() {
 export function makeExportPayload() {
   return {
     app: "Freedom Travel OS Personal",
-<<<<<<< HEAD
-    version: "2.5.0-rc.2",
-=======
     version: "2.5.0",
->>>>>>> 41c3b8f (Initial commit)
     exportedAt: new Date().toISOString(),
     data: collectProtectedData(),
   };
