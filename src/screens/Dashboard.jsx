@@ -14,7 +14,11 @@ export default function Dashboard({ store, setActivePage }) {
   const smart = buildSmartInsights(store);
   const topInsight = smart.insights[0];
   return <Page>
+<<<<<<< HEAD
     <header className="app-header beta-header"><div><span className="eyebrow">Freedom Travel OS · v2.5 RC4</span><h1>{trip.traveller}</h1></div><span className="status-chip">{days} days</span></header>
+=======
+    <header className="app-header beta-header"><div><span className="eyebrow">Freedom Travel OS · Korea Edition 2026</span><h1>{trip.traveller}</h1></div><span className="status-chip">{days} days</span></header>
+>>>>>>> 41c3b8f (Initial commit)
     <Card className="hero-card beta-hero"><div><span className="eyebrow">BIGBANG Korea Solo Trip</span><h2>{trip.destination}</h2><p>{trip.startDate} → {trip.endDate}</p><div className="hero-pills"><span>Flights confirmed</span><span>Hotels confirmed</span></div></div><ProgressRing value={ready} label="Ready" /></Card>
     <TripHealth store={store} setActivePage={setActivePage} />
     <Card className={`dashboard-smart-card priority-${topInsight.level}`} onClick={() => setActivePage("assistant")}><Sparkles size={21}/><div><span className="eyebrow">Smart Check</span><strong>{topInsight.title}</strong><p>{topInsight.text}</p></div></Card>

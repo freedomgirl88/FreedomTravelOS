@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 // Freedom Travel OS Personal v2.5 RC6 — UI Consistency & Emergency Fixes
 const CACHE_NAME = 'ftos-personal-v2.5.0-rc7';
+=======
+// Freedom Travel OS Personal v2.5 Official — Korea Edition 2026
+const CACHE_NAME = 'ftos-personal-v2.5.0-official';
+>>>>>>> 41c3b8f (Initial commit)
 const APP_ROOT = '/FreedomTravelOS/';
 const APP_SHELL = [APP_ROOT, `${APP_ROOT}manifest.webmanifest`, `${APP_ROOT}icons/icon-192.png`];
 

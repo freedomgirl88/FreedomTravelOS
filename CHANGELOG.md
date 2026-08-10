@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+=======
+# Changelog
+
+## 2.5.0 — Korea Edition 2026 Official
+- Promoted verified RC7 reminder and live-alert functionality to production.
+- Removed Trip Simulation and developer-only test-notification controls.
+- Removed RC labels from user-facing screens.
+- Updated production service-worker cache and Data Protection version metadata.
+- Preserved all existing Korea-trip local-storage compatibility.
+
+>>>>>>> 41c3b8f (Initial commit)
 ## 2.4.0 — Trip-aware AI Companion
 - Conversational on-device assistant for the saved Korea trip.
 - Proactive daily brief and actionable answers.

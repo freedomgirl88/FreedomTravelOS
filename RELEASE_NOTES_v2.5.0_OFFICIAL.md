@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-# Freedom Travel OS Personal v2.5 RC4
-
-## UI Consistency & Emergency Fixes
-
-- Premium Travel Documents and Emergency Contact forms
-- Responsive Emergency contact call cards
-- Freedom Assistant mobile composer redesign
-- Quick-question overflow and clipped control fixes
-- Save-button footer/sticker effect removed
-- Existing Korea trip information and RC1 splash preserved
-=======
 # Freedom Travel OS Personal v2.5 Official
 ## Korea Edition 2026
 
@@ -31,4 +19,3 @@ Production release prepared for the August 2026 Korea trip.
 - Updated package, backup metadata and service-worker cache to v2.5.0 Official
 
 The RC7 development build should be retained separately for future QA work.
->>>>>>> 41c3b8f (Initial commit)

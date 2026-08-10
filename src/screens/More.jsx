@@ -2,7 +2,11 @@ import Page from "../components/Page";
 import Card from "../components/Card";
 import SectionTitle from "../components/SectionTitle";
 import ThemeSelector from "../components/ThemeSelector";
+<<<<<<< HEAD
 import { Map, Wallet, BookOpen, Image, Bell, Settings, ChevronRight, Moon, Sun, MonitorSmartphone, CloudSun, Sparkles, PlaneTakeoff, Route, Languages, FileText, HeartPulse, CalendarDays, BellRing, ClipboardCheck } from "lucide-react";
+=======
+import { Map, Wallet, BookOpen, Image, Bell, Settings, ChevronRight, Moon, Sun, MonitorSmartphone, CloudSun, Sparkles, PlaneTakeoff, Route, Languages, FileText, HeartPulse, CalendarDays, BellRing } from "lucide-react";
+>>>>>>> 41c3b8f (Initial commit)
 
 export default function More({ setActivePage, theme, setTheme }) {
   const items = [
@@ -20,12 +24,19 @@ export default function More({ setActivePage, theme, setTheme }) {
     ["documents", "Travel Documents", "Keep references and expiry dates together.", FileText],
     ["emergency", "Emergency", "Save embassy, hotel and trusted contacts.", HeartPulse],
     ["notifications", "Notifications", "Live flight-safety reminders and calendar backup.", Bell],
+<<<<<<< HEAD
     ["tripcheck", "Trip Simulation", "Rehearse the full Korea journey and record any RC issues.", ClipboardCheck],
+=======
+>>>>>>> 41c3b8f (Initial commit)
     ["settings", "Settings", "Preferences, trip profile, backup and restore.", Settings]
   ];
   const ThemeIcon = theme === "dark" ? Moon : theme === "light" ? Sun : MonitorSmartphone;
   return <Page>
+<<<<<<< HEAD
     <header className="app-header"><div><span className="eyebrow">Freedom Travel OS</span><h1>More</h1></div><span className="status-chip">Personal v2.5 RC6</span></header>
+=======
+    <header className="app-header"><div><span className="eyebrow">Freedom Travel OS</span><h1>More</h1></div><span className="status-chip">Korea Edition 2026</span></header>
+>>>>>>> 41c3b8f (Initial commit)
     <Card className="more-hero"><h2>Travel Control Centre</h2><p>Your complete Korea trip tools and preferences in one place.</p></Card>
     <SectionTitle title="Appearance" subtitle="Choose Light, Dark or follow your device." />
     <Card className="theme-card beta1-theme-card"><div className="theme-copy"><span className="theme-icon"><ThemeIcon size={20}/></span><section><strong>{theme === "system" ? "Follow System" : theme === "dark" ? "Dark Mode" : "Light Mode"}</strong><p>{theme === "system" ? "The app follows your phone or computer appearance." : theme === "dark" ? "Navy travel theme is active." : "Premium blue and white theme is active."}</p></section></div><ThemeSelector theme={theme} setTheme={setTheme}/></Card>

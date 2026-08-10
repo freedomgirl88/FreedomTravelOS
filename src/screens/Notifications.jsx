@@ -2,7 +2,11 @@ import { useEffect, useMemo, useState } from "react";
 import Page from "../components/Page";
 import Card from "../components/Card";
 import SectionTitle from "../components/SectionTitle";
+<<<<<<< HEAD
 import { BellRing, CalendarPlus, Clock3, ShieldAlert, CheckCircle2, FlaskConical } from "lucide-react";
+=======
+import { BellRing, CalendarPlus, Clock3, ShieldAlert, CheckCircle2 } from "lucide-react";
+>>>>>>> 41c3b8f (Initial commit)
 
 function formatCountdown(ms) {
   if (ms <= 0) return "Leave now";
@@ -48,6 +52,7 @@ export default function Notifications({ store }) {
       window.ftosToast?.("Live alerts enabled");
     }
   };
+<<<<<<< HEAD
   const sendTestNotification = async () => {
     if (!("Notification" in window)) return window.ftosToast?.("Notifications are not supported on this device", "warning");
     let result = Notification.permission;
@@ -62,6 +67,8 @@ export default function Notifications({ store }) {
       window.ftosToast?.("Test notification sent");
     } catch { window.ftosToast?.("Test notification could not be sent", "warning"); }
   };
+=======
+>>>>>>> 41c3b8f (Initial commit)
   const reminders = [
     ["24 Aug", "Hotel move", "Check out of Glad Hotel Mapo and move to Shilla Stay Mapo."],
     ["25 Aug", "Return-flight preparation", "Pack, confirm airport route and keep passport accessible."],
@@ -79,10 +86,16 @@ export default function Notifications({ store }) {
     </Card>
     <div className="notification-actions">
       <button className="primary-wide" onClick={requestPermission}><BellRing size={18}/>{permission === "granted" ? "Live alerts enabled" : "Enable live alerts"}</button>
+<<<<<<< HEAD
       <button className="secondary-wide notification-test-button" onClick={sendTestNotification}><FlaskConical size={18}/>Send test notification</button>
       <button className="secondary-wide" onClick={() => downloadCalendar(flight)}><CalendarPlus size={18}/>Add backup calendar reminder</button>
     </div>
     <Card className="safety-note"><ShieldAlert size={21}/><div><strong>{permission === "granted" ? "Notifications allowed on this device" : "Use two layers of protection"}</strong><p>{permission === "granted" ? "Use Send test notification now, then create a reminder 2–3 minutes ahead to verify scheduled reminders." : "Enable live alerts first, then add the calendar reminder. Phone power-saving can delay web notifications."}</p></div></Card>
+=======
+      <button className="secondary-wide" onClick={() => downloadCalendar(flight)}><CalendarPlus size={18}/>Add backup calendar reminder</button>
+    </div>
+    <Card className="safety-note"><ShieldAlert size={21}/><div><strong>{permission === "granted" ? "Notifications allowed on this device" : "Use two layers of protection"}</strong><p>{permission === "granted" ? "Live alerts are enabled. Keep the calendar reminder as a second layer of protection for important flight timing." : "Enable live alerts first, then add the calendar reminder. Phone power-saving can delay web notifications."}</p></div></Card>
+>>>>>>> 41c3b8f (Initial commit)
     <SectionTitle title="Reminder Timeline" subtitle={`Based on your saved ${flight.flightNumber} return-flight plan.`} />
     <div className="notification-stack">{reminders.map(([time,title,text]) => <Card className="notification-card" key={`${time}-${title}`}><span><CheckCircle2 size={20}/></span><div><small>{time}</small><strong>{title}</strong><p>{text}</p></div></Card>)}</div>
     <SectionTitle title="Live Trip Signals" />
