@@ -1,0 +1,1 @@
+import{j as e}from"./index-BOhsATY8.js";function r({label:t,value:a,onChange:s,type:l="text"}){return e.jsxs("label",{className:"field",children:[e.jsx("span",{children:t}),e.jsx("input",{type:l,value:a??"",onChange:n=>s(n.target.value)})]})}export{r as E};
